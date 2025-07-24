@@ -2,11 +2,13 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const axios = require("axios");
+const cors = require("cors");
+
 dotenv.config();
 app.listen(8000, () => {
   console.log("server Started");
 });
-
+app.use(cors());
 app.get("/{*jty}", async (req, res) => {
   console.log(req.url);
   if (req.url == "/login" || req.url == "/signIn") {
